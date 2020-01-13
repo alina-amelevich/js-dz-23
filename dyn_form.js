@@ -41,7 +41,7 @@ function dyn_form(tagForm, content) {
                 formHtml += '</div><div><textarea name="' + el.name + '" class="memo"></textarea>';
             }
         }
-        formHtml += '</div>'
+        formHtml += '</div>';
     }
     tagForm.innerHTML = formHtml;
 };
