@@ -6,38 +6,31 @@ function dyn_form(tagForm, content) {
         formHtml += '<div class="form_element">';
         if (el.kind === 'submit') {
             formHtml += '<input type="submit" value="' + el.label + '">';
-        } 
-        else {
+        } else {
             formHtml += '<span>' + el.label + '</span>';
     
             if (el.kind === 'longtext') {
                 formHtml += '<input type="text" class="longtext" name="' + el.name + '">';
-            }
-            if (el.kind === 'number') {
+            } else if (el.kind === 'number') {
                 formHtml += '<input type="number" name="' + el.name + '">';
-            }
-            if (el.kind === 'shorttext') { //Пусть элемены типа 'shorttext' будут считаться полями для ввода E-mail
+            } else if (el.kind === 'shorttext') { //Пусть элемены типа 'shorttext' будут считаться полями для ввода E-mail
                 formHtml += '<input type="text" class="shorttext" name="' + el.name + '">';
-            }
-            if (el.kind === 'combo') {
+            } else if (el.kind === 'combo') {
                 formHtml += '<select name="' + el.name + '" class="combo">';
                 for (const option of el.variants) {
                     formHtml += '<option value="' + option.value + '">' + option.text +'</option>';
                 }
                 formHtml += '</select>';
-            }
-            if (el.kind === 'radio') {
+            } else if (el.kind === 'radio') {
                 let id = '';
                 for (const option of el.variants) {
                     id = option.value;
                     formHtml += '<input type="radio" name="' + el.name + '" value="' + option.value + '"' + ' id="' + id + '">' 
                     + '<label for="' + id + '">' + option.text + '</label>';
                 }
-            }
-            if (el.kind === 'check') {
+            } else if (el.kind === 'check') {
                 formHtml += '<input type="checkbox" name="' + el.name + '">';
-            }
-            if (el.kind === 'memo') {
+            } else if (el.kind === 'memo') {
                 formHtml += '</div><div><textarea name="' + el.name + '" class="memo"></textarea>';
             }
         }
@@ -69,7 +62,7 @@ function dyn_form(tagForm, content) {
     {label:'Возраст:',kind:'number',name:'age'},
     {label:'Зарегистрироваться:',kind:'submit'},
     ];
-
+    
     dyn_form(frm1, formDef1);
     dyn_form(frm2, formDef2);
 })( );
