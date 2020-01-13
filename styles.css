@@ -1,6 +1,5 @@
 form {
     margin: 40px;
-
     font-size: 20px;
 }
 
@@ -18,7 +17,6 @@ form {
 
 .longtext {
     flex-grow: 3;
-
 }
 
 .shorttext {
